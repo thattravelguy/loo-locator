@@ -1,5 +1,5 @@
 /* sw.js — Loo Locator service worker */
-const CACHE = 'loo-locator-v2';
+const CACHE = 'loo-locator-v3';
 const PRECACHE = [
   '/',
   '/index.html',
