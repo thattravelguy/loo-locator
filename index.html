@@ -16,10 +16,8 @@
 </head>
 <body>
 
-  <!-- App shell -->
   <div id="app" class="app">
 
-    <!-- Top bar -->
     <header class="topbar">
       <div class="topbar-left">
         <div class="logo-icon" aria-hidden="true">
@@ -37,7 +35,6 @@
       </div>
     </header>
 
-    <!-- City selector -->
     <nav class="city-nav" id="cityNav" aria-label="Select city">
       <div class="city-tabs-scroll">
         <button class="city-tab active" data-city="budapest">Budapest</button>
@@ -50,23 +47,23 @@
         <button class="city-tab" data-city="madrid">Madrid</button>
         <button class="city-tab" data-city="seville">Seville</button>
         <button class="city-tab" data-city="malaga">Malaga</button>
+        <button class="city-tab" data-city="zaragoza">Zaragoza</button>
+        <button class="city-tab" data-city="lisbon">Lisbon</button>
+        <button class="city-tab" data-city="porto">Porto</button>
+        <button class="city-tab" data-city="funchal">Funchal</button>
       </div>
     </nav>
 
-    <!-- Map -->
     <div id="map" class="map-container" aria-label="Map of toilet locations"></div>
 
-    <!-- Locate button -->
     <button class="locate-fab" id="locateBtn" aria-label="Find nearest toilet" onclick="findNearest()">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="10" stroke-dasharray="2 3"/></svg>
     </button>
 
-    <!-- Add toilet button -->
     <button class="add-fab" id="addBtn" aria-label="Add a toilet" onclick="openAddForm()">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
     </button>
 
-    <!-- Filter bar -->
     <div class="filter-bar" id="filterBar">
       <button class="filter-chip" data-filter="free" onclick="toggleFilter(this)">Free</button>
       <button class="filter-chip" data-filter="accessible" onclick="toggleFilter(this)">Accessible</button>
@@ -77,15 +74,25 @@
       </button>
     </div>
 
-    <!-- Bottom sheet: toilet detail -->
+    <!-- Detail sheet -->
     <div class="bottom-sheet" id="detailSheet" aria-modal="true" role="dialog" aria-label="Toilet details">
-      <div class="sheet-handle"></div>
+      <div class="sheet-handle-row">
+        <div class="sheet-handle"></div>
+        <button class="sheet-close-btn" aria-label="Close" onclick="closeSheet('detailSheet')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
       <div class="sheet-content" id="detailContent"></div>
     </div>
 
-    <!-- Bottom sheet: add toilet form -->
+    <!-- Add toilet sheet -->
     <div class="bottom-sheet" id="addSheet" aria-modal="true" role="dialog" aria-label="Add a toilet">
-      <div class="sheet-handle"></div>
+      <div class="sheet-handle-row">
+        <div class="sheet-handle"></div>
+        <button class="sheet-close-btn" aria-label="Close" onclick="closeSheet('addSheet')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
       <div class="sheet-content">
         <h2 class="sheet-title">Add a toilet</h2>
         <p class="sheet-subtitle">Help others by adding a location you know about.</p>
@@ -102,15 +109,9 @@
             </div>
           </label>
           <div class="form-row">
-            <label class="form-check">
-              <input type="checkbox" id="addFree"> Free to use
-            </label>
-            <label class="form-check">
-              <input type="checkbox" id="addAccessible"> Accessible
-            </label>
-            <label class="form-check">
-              <input type="checkbox" id="add247"> Open 24/7
-            </label>
+            <label class="form-check"><input type="checkbox" id="addFree"> Free to use</label>
+            <label class="form-check"><input type="checkbox" id="addAccessible"> Accessible</label>
+            <label class="form-check"><input type="checkbox" id="add247"> Open 24/7</label>
           </div>
           <label class="form-label">Opening hours (if not 24/7)
             <input type="text" id="addHours" placeholder="e.g. 8:00–20:00">
@@ -133,16 +134,13 @@
       </div>
     </div>
 
-    <!-- Toast notification -->
     <div class="toast" id="toast" aria-live="polite"></div>
-
-    <!-- OSM loading overlay -->
     <div class="loading-overlay" id="loadingOverlay">
       <div class="loading-spinner"></div>
       <p class="loading-text" id="loadingText">Loading live data…</p>
     </div>
 
-  </div><!-- /app -->
+  </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="data.js"></script>

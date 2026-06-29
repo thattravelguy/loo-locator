@@ -541,7 +541,7 @@ function closeSheet(id) {
 
 /* Close sheet on handle drag / tap outside */
 document.addEventListener('click', e => {
-  if (e.target.classList.contains('sheet-handle')) {
+  if (e.target.classList.contains('sheet-handle') || e.target.closest('.sheet-handle-row') === e.currentTarget) {
     document.querySelectorAll('.bottom-sheet.open').forEach(s => s.classList.remove('open'));
   }
 });
