@@ -1,0 +1,35 @@
+{
+  "name": "Loo Locator",
+  "short_name": "Loo Locator",
+  "description": "Find public toilets across Europe — free, accessible, open now.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#1a73e8",
+  "lang": "en",
+  "categories": ["travel", "utilities"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "screenshots": [
+    { "src": "icons/screenshot-mobile.png", "sizes": "390x844", "type": "image/png", "form_factor": "narrow" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Find nearest loo",
+      "short_name": "Find nearest",
+      "description": "Jump straight to nearest toilet finder",
+      "url": "/?action=nearest",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Add a toilet",
+      "short_name": "Add location",
+      "description": "Submit a new toilet location",
+      "url": "/?action=add",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
